@@ -75,7 +75,7 @@ public class SketchSet implements ICountDistinct {
     }
 
     public void addItem(String str) {
-        HashCode hc = HASH.hashUnencodedChars(str);
+        HashCode hc = HASH.hashString(str);
         this.addHashItem(hc.asLong(), str);
     }
 
@@ -116,7 +116,7 @@ public class SketchSet implements ICountDistinct {
     }
 
     static public double EstimatedReach(String lastItem, int maxItems) {
-        long maxHash = HASH.hashUnencodedChars(lastItem).asLong();
+        long maxHash = HASH.hashString(lastItem).asLong();
         return EstimatedReach(maxHash, maxItems);
     }
 
